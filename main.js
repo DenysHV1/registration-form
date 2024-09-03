@@ -152,7 +152,6 @@ function oneClickToSend(event) {
 storage();
 
 function storage() {
-
   const inputsInfo = {
     name: document.getElementById("user-name-js"),
     lastName: document.getElementById("user-lastName-js"),
@@ -166,7 +165,7 @@ function storage() {
     email: "",
   };
 
-  if (storageData) {
+  if (storageData === null) {
     return;
   }
 
@@ -195,7 +194,28 @@ function storage() {
     localStorage.setItem("data", JSON.stringify(feedbackFormState));
   }
 
-  name.value = storageData.nameInfo;
-  lastName.value = storageData.lastNameInfo;
-  email.value = storageData.emailInfo;
+  name.value = storageData.nameInfo ?? "";
+  lastName.value = storageData.lastNameInfo ?? "";
+  email.value = storageData.emailInfo ?? "";
 }
+
+// let formData = {};
+
+// const STORAGE_KEY = "feedback-form-state";
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     const savedData = localStorage.getItem(STORAGE_KEY);
+//     if (savedData) {
+//     formData = JSON.parse(savedData);
+//   name.value = storageData.nameInfo;
+//   lastName.value = storageData.lastNameInfo;
+//   email.value = storageData.emailInfo;
+//     }
+// });
+
+// form.addEventListener("input", (event) => {
+// 	if(event.target.name !== 'userPass' || event.target.name !== 'userRepeatPass'){
+// 		formData[event.target.name] = event.target.value;
+// 	}
+// 		localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+// });
