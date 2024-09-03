@@ -150,8 +150,9 @@ function oneClickToSend(event) {
 }
 
 storage();
+
 function storage() {
-  //* inputs
+
   const inputsInfo = {
     name: document.getElementById("user-name-js"),
     lastName: document.getElementById("user-lastName-js"),
@@ -159,14 +160,13 @@ function storage() {
   };
   const { name, lastName, email } = inputsInfo;
 
-  //when start page
   const storageData = JSON.parse(localStorage.getItem("data")) || {
     name: "",
     lastName: "",
     email: "",
   };
 
-  if (storageData === null) {
+  if (storageData) {
     return;
   }
 
